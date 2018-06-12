@@ -109,7 +109,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
                         money_stuff('npc', 2 * bb)
                         print('Computer raises' , bb, 'Pot is now ', pot, '\n')
                         player_vs_raise(street, rays)
-                elif vs_check == True:
+                elif vs_check:
                         print("Computer checks")
                         flop()
                 elif power > 60:
@@ -120,7 +120,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
         elif street == 'flop':
   #              print('nnnnnnnnnn' , npc_hand + board)
                 power = howGood.how_strong(npc_hand + board)
-                if power > 299 and vs_check == True:
+                if power > 299 and vs_check:
                         money_stuff('npc', bb)
                         rays += 1
                         print('Computer bets' , bb, 'Pot is now ', pot, '\n')
@@ -129,7 +129,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
                         money_stuff('npc', 2 * bb)
                         print('Computer raises' , bb, 'Pot is now ', pot, '\n')
                         player_vs_raise(street, rays)
-                elif vs_check == True:
+                elif vs_check:
                         print('Computer checks')
                         turn()
                 elif power < 100: someone_folds('npc')
@@ -140,7 +140,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
         elif street == 'turn':
 #                print('mjjjjj' , npc_hand + board)
                 power = howGood.how_strong(npc_hand + board)
-                if power > 330 and vs_check == True:
+                if power > 330 and vs_check:
                         money_stuff('npc', bb)
                         rays += 1
                         print('Computer bets' , 2 * bb, 'Pot is now ', pot, '\n')
@@ -149,7 +149,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
                         money_stuff('npc', 4 * bb)
                         print('Computer raises' ,2 * bb, 'Pot is now ', pot, '\n')
                         player_vs_raise(street, rays)
-                elif vs_check == True:
+                elif vs_check:
                         print('Computer checks behind')
                         river()
                 elif power < 100: someone_folds('npc')
@@ -160,7 +160,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
         elif street == 'river':
  #               print('riversssss' , npc_hand + board)
                 power = howGood.how_strong(npc_hand + board)
-                if power > 380 and vs_check == True:
+                if power > 380 and vs_check:
                         money_stuff('npc', bb)
                         rays += 1
                         print('Computer bets' , 2 * bb, 'Pot is now ', pot, '\n')
@@ -169,7 +169,7 @@ def does_npc_bet(street, rays = 0, vs_check = False):
                         money_stuff('npc', 4 * bb)
                         print('Computer raises' ,2 * bb, 'Pot is now ', pot, '\n')
                         player_vs_raise(street, rays)
-                elif vs_check == True:
+                elif vs_check:
                         print('Computer checks behind')
                         showdown()
                 elif power < 299: someone_folds('npc')
